@@ -28,7 +28,7 @@ $company = get_theme_mod('company');
   <div class="footer__content container">
     <div class="row footer__row">
       <div class="col footer__col">
-        <a class="footerLogo__link" href="/">
+        <a class="footerLogo__link" href="<?php echo get_bloginfo( 'wpurl' );?>">
           <img class="footerLogo" src="<?php echo $footer_logo; ?>" alt="Brand">
         </a>
         <?php wp_nav_menu(

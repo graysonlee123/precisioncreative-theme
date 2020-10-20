@@ -1,21 +1,32 @@
 <?php
+
 /**
  * The sidebar containing the main widget area.
  *
  * @package PrecisionCreative
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
-
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
 ?>
 
-<div class="col-md-4 widget-area" id="secondary" role="complementary">
-
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-
+<div class="col-sm-3 col-sm-offset-1 blog__sidebar">
+	<div class="sidebar-module sidebar-module-inset">
+		<h4>About</h4>
+		<p>
+			<?php echo get_bloginfo('description'); ?>
+		</p>
+	</div>
+	<div class="sidebar-module">
+		<h4>Archives</h4>
+		<ol class="list-unstyled">
+			<?php wp_get_archives('type=monthly'); ?>
+		</ol>
+	</div>
+	<div class="sidebar-module">
+		<h4>Elsewhere</h4>
+		<ol class="list-unstyled">
+			<li><a href="#">GitHub</a></li>
+			<li><a href="#">Twitter</a></li>
+			<li><a href="#">Facebook</a></li>
+		</ol>
+	</div>
 </div><!-- #secondary -->

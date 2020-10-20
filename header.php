@@ -25,13 +25,15 @@ if ($mobile_menu_type === 'pushy') {
 ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html lang="en">
 
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="Description" content="<?php echo get_bloginfo('description'); ?>">
-  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title><?php echo get_bloginfo( 'name' ); ?></title>
+  <meta name="description" content="<?php echo get_bloginfo('description'); ?>">
+  
   <?php wp_head(); ?>
 </head>
 
@@ -42,7 +44,7 @@ if ($mobile_menu_type === 'pushy') {
   <nav class="navbar <?php echo $nav_breakpoint; ?>">
     <div class="navbar__container container">
       <!-- Site Logo -->
-      <a class="navLogo__link" href="/">
+      <a class="navLogo__link" href="<?php echo get_bloginfo( 'wpurl' );?>">
         <img class="navLogo" src="<?php echo $custom_logo_url; ?>" alt="Test">
       </a>
 
