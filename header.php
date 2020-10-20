@@ -41,6 +41,9 @@ if ($mobile_menu_type === 'pushy') {
 
   <?php do_action('wp_body_open'); ?>
 
+  <!-- START Page wrap -->
+  <div id="window">
+
   <nav class="navbar <?php echo $nav_breakpoint; ?>">
     <div class="navbar__container container">
       <!-- Site Logo -->

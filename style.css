@@ -13,7 +13,7 @@ Global Variables
 :root {
   --text-dark: #131313;
   --text-light: #969696;
-  --primary-accent: #1049B5;
+  --primary-accent: #1049b5;
 }
 
 /*-----------------------
@@ -155,7 +155,7 @@ body {
   line-height: 1.4;
   font-weight: normal;
   color: var(--text-dark);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 h1 {
@@ -221,9 +221,9 @@ a {
   body {
     font-size: 16px;
   }
-	.container{
-		max-width: 1200px;
-	}
+  .container {
+    max-width: 1200px;
+  }
 }
 
 /*-----------------------
@@ -247,7 +247,7 @@ Buttons
 }
 
 .pcButton__wrapper,
-input[type=submit] {
+input[type="submit"] {
   display: inline-block;
   width: auto;
   padding: 14px 25px;
@@ -263,7 +263,7 @@ input[type=submit] {
 }
 
 .pcButton__wrapper:hover,
-input[type=submit]:hover {
+input[type="submit"]:hover {
   filter: brightness(1.1);
 }
 
@@ -277,7 +277,7 @@ Navbar
 }
 
 .navbar__container {
-  padding: 1rem 15px;  
+  padding: 1rem 15px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -513,7 +513,6 @@ Accordion
 }
 
 .accordion--open {
-
 }
 
 #accordion .menu-item {
@@ -649,4 +648,29 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/*-----------------------
+Page Wrap
+-----------------------*/
+
+#window {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#window > footer {
+  margin-top: auto;
+}
+
+/* Adminbar screen height fix */
+body.admin-bar #window {
+  min-height: calc(100vh - 32px);
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar #window {
+    min-height: calc(100vh - 46px);
+  }
 }

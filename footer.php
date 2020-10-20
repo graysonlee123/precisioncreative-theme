@@ -60,4 +60,7 @@ $company = get_theme_mod('company');
   </div>
 </footer>
 
+<!-- End #window Page wrap -->
+</div >
+
 <?php wp_footer(); ?>
