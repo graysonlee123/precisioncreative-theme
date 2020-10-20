@@ -25,7 +25,7 @@ $company = get_theme_mod('company');
 <?php get_template_part('sidebar-templates/sidebar', 'footerfull'); ?>
 
 <footer class="footer">
-  <div class="footer__content container">
+  <div class="footer__content <?php echo $container; ?>">
     <div class="row footer__row">
       <div class="col footer__col">
         <a class="footerLogo__link" href="<?php echo get_bloginfo( 'wpurl' );?>">
@@ -47,15 +47,17 @@ $company = get_theme_mod('company');
       </div>
     </div>
   </div>
-</footer>
-<div class="container-fluid copyright__container">
-  <div class="row copyright__row">
-    <div class="col copyright__col">
-      <p class="copyright__p copyright__p--copyright">&copy; <?php echo date("Y").' '.$company; ?></p>
-      <p class="copyright__p">All Rights Reserved</p>
-      <p class="copyright__p copyright__p--precision">Powered By <a href="https://precisioncreative.com/" target="_blank" rel="noreferrer">Precision Creative</a></p>
+  <div class="copyright__wrap">
+    <div class="<?php echo $container; ?>">
+      <div class="row copyright__row">
+        <div class="col copyright__col">
+          <p class="copyright__p copyright__p--copyright">&copy; <?php echo date("Y").' '.$company; ?></p>
+          <p class="copyright__p">All Rights Reserved</p>
+          <p class="copyright__p copyright__p--precision">Powered By <a href="https://precisioncreative.com/" target="_blank" rel="noreferrer">Precision Creative</a></p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</footer>
 
 <?php wp_footer(); ?>
