@@ -58,19 +58,28 @@ function theme_enqueue_styles()
   // Precision
   wp_enqueue_style('precision-styles', get_stylesheet_directory_uri() . '/style.css');
   wp_enqueue_script('precision-scripts', get_stylesheet_directory_uri() . '/js/precisioncreative.js', array('jquery'), false, true);
-
+  
   // Parallax 
   // https://github.com/pixelcog/parallax.js
   wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array('jquery'), false, true);
-
+  
   // Splide slider
   // Releases found here https://github.com/Splidejs/splide/releases
-
+  
   // Fonts
-
+  
   // Load comments script if comments are available
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
+  }
+  
+  // Loads different CSS for different pages
+  // Great for optimization and maintainability
+  // 
+  // The CSS in these files should be more for layout changes, leave
+  // typogrophy and the look and feel of the site in the main stylesheet
+  if ( is_page_template('page.php') || is_page_template('page-templates/page-sidebar-right.php')) {
+    wp_enqueue_style('page', get_stylesheet_directory_uri() . '/css/page.css');
   }
 }
 
