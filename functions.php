@@ -58,28 +58,42 @@ function theme_enqueue_styles()
   // Precision
   wp_enqueue_style('precision-styles', get_stylesheet_directory_uri() . '/style.css');
   wp_enqueue_script('precision-scripts', get_stylesheet_directory_uri() . '/js/precisioncreative.js', array('jquery'), false, true);
-  
+
   // Parallax 
   // https://github.com/pixelcog/parallax.js
-  wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array('jquery'), false, true);
-  
+  // wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array('jquery'), false, true);
+
   // Splide slider
   // Releases found here https://github.com/Splidejs/splide/releases
-  
+
   // Fonts
-  
+
   // Load comments script if comments are available
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
-  
+
   // Loads different CSS for different pages
   // Great for optimization and maintainability
   // 
   // The CSS in these files should be more for layout changes, leave
   // typogrophy and the look and feel of the site in the main stylesheet
-  if ( is_page_template('page.php') || is_page_template('page-templates/page-sidebar-right.php')) {
-    wp_enqueue_style('page', get_stylesheet_directory_uri() . '/css/page.css');
+  //
+  // For example, you could load a CSS (AND / OR JavaScript) file just for the homepage!
+  if (is_single()) {
+    // Posts
+    wp_enqueue_style('single', get_stylesheet_directory_uri() . '/css/pages/single.css');
+  } else if (is_page_template(array('default', 'page-templates/page-sidebar-right.php'))) {
+    // Regular pages
+    wp_enqueue_style('page', get_stylesheet_directory_uri() . '/css/pages/page.css');
+  } else if (is_home()) {
+    // Can be interchanged with is_front_page() depending on the site front page settings
+    // (https://developer.wordpress.org/reference/functions/is_front_page/)
+    // (https://developer.wordpress.org/reference/functions/is_home/)
+    wp_enqueue_style('front-page', get_stylesheet_directory_uri() . '/css/pages/front-page.css');
+  } else if (is_page_template('page-templates/parallax-demo.php')) {
+    wp_enqueue_style('parallax', get_stylesheet_directory_uri() . '/css/pages/parallax.css');
+    wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/pages/parallax.js', array('jquery'), false, true);
   }
 }
 
@@ -125,7 +139,8 @@ if (!function_exists('widgets_init')) {
 
 // Add social links options to the customizer
 add_action('customize_register', 'socials_customizer_settings');
-function socials_customizer_settings($wp_customize) {
+function socials_customizer_settings($wp_customize)
+{
   $wp_customize->add_section('social_links', array(
     'title'      => 'Social Links',
     'priority'   => 160,
@@ -165,12 +180,12 @@ function socials_customizer_settings($wp_customize) {
       )
     )
   );
-  
+
   // Instagram
   $wp_customize->add_setting('instagram_link', array(
     'transport'   => 'refresh',
   ));
-  
+
   $wp_customize->add_control(
     new WP_Customize_Control(
       $wp_customize,
@@ -187,7 +202,7 @@ function socials_customizer_settings($wp_customize) {
   $wp_customize->add_setting('linkedin_link', array(
     'transport'   => 'refresh',
   ));
-  
+
   $wp_customize->add_control(
     new WP_Customize_Control(
       $wp_customize,

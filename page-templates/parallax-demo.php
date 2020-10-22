@@ -22,48 +22,4 @@
 	</div>
 </div>
 
-<script>
-	// Notes 
-	// We need to wait until the parallax scripts have been loaded in
-	// 
-	// See CSS Below for setting a row's height and make sure it's background is transparent
-	//
-	// Do not use an image that is too big, otherwise
-	// you will end up with SCROLL JANKING 
-	// http://jankfree.org/
-	//
-	// It seems to jank no matter what when logged into WordPress (text in an incognito tab)
-
-	document.addEventListener("DOMContentLoaded", function() {
-		jQuery(".parallax-window").parallax({
-			// Options can be found here 
-			// https://github.com/pixelcog/parallax.js#options
-		});
-	})
-</script>
-
-<style>
-	.tall {
-		height: 50vh;
-		background-color: red;
-	}
-
-	.tall:nth-of-type(2) {
-		background-color: orange;
-	}
-
-	.tall:nth-of-type(3) {
-		background-color: yellow;
-	}
-
-	.tall:nth-of-type(4) {
-		background-color: green;
-	}
-
-	.parallax-window {
-		height: 300px;
-		background-color: transparent;
-	}
-</style>
-
 <?php get_footer(); ?>

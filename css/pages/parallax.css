@@ -1,0 +1,21 @@
+.tall {
+  height: 50vh;
+  background-color: red;
+}
+
+.tall:nth-of-type(2) {
+  background-color: orange;
+}
+
+.tall:nth-of-type(3) {
+  background-color: yellow;
+}
+
+.tall:nth-of-type(4) {
+  background-color: green;
+}
+
+.parallax-window {
+  height: 300px;
+  background-color: transparent;
+}
